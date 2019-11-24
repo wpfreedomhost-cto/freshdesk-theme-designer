@@ -1,0 +1,62 @@
+body {
+  @apply .text-base .text-black;
+  
+  font-family: 'Montserrat', sans-serif;
+  width: calc(100% - 15px);
+  height: calc(100vh - 15px);
+  box-sizing: border-box;
+}
+
+body > div {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+h1 {
+ @apply .font-light .text-6xl .leading-loose .tracking-wide;
+}
+
+h2 {
+  @apply .font-medium .text-5xl .leading-relaxed;
+}
+
+h3 {
+  @apply .font-semibold .text-4xl .leading-relaxed;
+}
+
+h4 {
+  @apply .font-medium .text-3xl;
+}
+
+h5 {
+  @apply .font-semibold .text-2xl;
+}
+
+h6 {
+  @apply .font-medium .text-xl;
+}
+
+button,
+.btn {
+  @apply .font-semibold .rounded .p-2 .border .border-gray-600 .bg-white .text-black;
+}
+
+button:hover, 
+.btn:hover {
+  @apply .shadow-md .bg-gray-400;
+}
+
+button.btn-primary,
+.btn.btn-primary {
+  @apply .bg-primary .text-white
+}
+
+button.btn-primary:hover, 
+.btn.btn-primary:hover {
+  @apply .bg-blue-900;
+}
+
+.subtitle {
+  @apply .font-medium .text-lg;
+}
