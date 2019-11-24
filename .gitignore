@@ -1,0 +1,30 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+ember-src/portal-builder-ember/dist/
+ember-src/portal-builder-ember/tmp/
+
+# dependencies
+ember-src/portal-builder-ember/node_modules/
+
+# misc
+ember-src/portal-builder-ember/.env*
+ember-src/portal-builder-ember/.pnp*
+ember-src/portal-builder-ember/.sass-cache
+ember-src/portal-builder-ember/connect.lock
+ember-src/portal-builder-ember/coverage/
+ember-src/portal-builder-ember/libpeerconnection.log
+ember-src/portal-builder-ember/npm-debug.log*
+ember-src/portal-builder-ember/testem.log
+ember-src/portal-builder-ember/yarn-error.log
+
+# ember-try
+ember-src/portal-builder-ember/.node_modules.ember-try/
+ember-src/portal-builder-ember/bower.json.ember-try
+ember-src/portal-builder-ember/package.json.ember-try
+
+.fdk/
+.DS_STORE
+.report.json
+app/dist/
+coverage/
