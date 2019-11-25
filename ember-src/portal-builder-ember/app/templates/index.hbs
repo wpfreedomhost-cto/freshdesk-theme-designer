@@ -1,23 +1,24 @@
-this is some normal text
-<h1>this is a h1</h1>
-<h2>this is a h2</h2>
-<h3>this is a h3</h3>
-<h4>this is a h4</h4>
-<h5>this is a h5</h5>
-<h6>this is a h6</h6>
-
-<div class="subtitle">
-  this is a subtitle
+<div class="absolute left-0 top-0">
+  <LinkTo  @route="style-guide"> Goto Styleguide </LinkTo>
 </div>
+<div class="flex flex-col items-center justify-center">
+  <h2 class="mt-20">
+    Let's build the portal you deserve
+  </h2>
+  <div class="subtitle">
+    At portal builder we help you re-build your portal page to better match your company outlook.
+  </div>
 
-<button class="btn">
-  normal button
-</button>
+  <div class="my-10">
+    <LinkTo
+        @route="select-color-theme"
+        class="btn btn-primary py-3">
+      Start building customized portal
+    </LinkTo>
+  </div>
 
-<button class="btn-primary">
-  primary button
-</button>
-
-<div class="pb-10">
-
+  <img
+    class="w-3/4"
+    src="images/hero-image.png" 
+    alt="hero image">
 </div>

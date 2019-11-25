@@ -18,7 +18,7 @@ h1 {
 }
 
 h2 {
-  @apply .font-medium .text-5xl .leading-relaxed;
+  @apply .font-light .text-5xl .leading-relaxed;
 }
 
 h3 {
@@ -35,6 +35,18 @@ h5 {
 
 h6 {
   @apply .font-medium .text-xl;
+}
+
+.subtitle {
+  @apply .font-medium .text-lg;
+}
+
+a {
+  @apply .cursor-pointer .text-blue-700;
+}
+
+a:hover {
+  @apply .text-blue-900
 }
 
 button,
@@ -55,8 +67,4 @@ button.btn-primary,
 button.btn-primary:hover, 
 .btn.btn-primary:hover {
   @apply .bg-blue-900;
-}
-
-.subtitle {
-  @apply .font-medium .text-lg;
 }
