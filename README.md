@@ -16,3 +16,9 @@ Congratulations on creating your first app! Feel free to replace this text with 
     │   ├── iparams.json           Contains the parameters that will be collected during installation
     │   └── iparam_test_data.json  Contains sample Iparam values that will used during testing
     └── manifest.json              Contains app meta data and configuration information
+    └── ember-src                   Contains ember app source code
+
+### building
+
+* open project rooot in termilal and run `fdk run`
+* open new terminal in ember-src/portal-builder-ember and run `npm run start`
