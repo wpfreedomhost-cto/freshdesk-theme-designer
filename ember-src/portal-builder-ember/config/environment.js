@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'portal-builder-ember',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: process.env.LOCATION_TYPE || 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
