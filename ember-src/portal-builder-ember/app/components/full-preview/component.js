@@ -58,7 +58,7 @@ export default Component.extend({
             </div>
 
             <div class="mt-5 flex justify-center">
-              <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-20 rounded shadow">
+              <button submit-id=true class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-20 rounded shadow">
                 I'm all done
               </button>
             </div>
@@ -95,6 +95,8 @@ export default Component.extend({
         if (targetComponentSelectDom) {
           let componentId = targetComponentSelectDom.getAttribute('data-component-id')
           this.router.transitionTo('builder-page.new', componentId, 'portal-home');
+        } else if (target.closest('[submit-id]')) {
+          this.router.transitionTo('rendered-html');
         }
       });
     }
