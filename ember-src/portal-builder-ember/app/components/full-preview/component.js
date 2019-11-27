@@ -94,7 +94,7 @@ export default Component.extend({
         let targetComponentSelectDom = target.closest('[data-component-id]');
         if (targetComponentSelectDom) {
           let componentId = targetComponentSelectDom.getAttribute('data-component-id')
-          this.router.transitionTo('builder-page.new', componentId);
+          this.router.transitionTo('builder-page.new', componentId, 'portal-home');
         }
       });
     }
