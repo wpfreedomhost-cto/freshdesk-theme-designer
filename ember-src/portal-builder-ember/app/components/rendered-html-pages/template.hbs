@@ -1,0 +1,41 @@
+<div class="flex">
+  <button class="btn ml-5 mt-10 mr-5 rounded" {{action "selectView" "layout"}} >
+    Portal Layout
+  </button>
+  <button class="btn mt-10 rounded" {{action "selectView" "pages"}}>
+    Portal pages
+  </button>
+</div>
+{{#if layoutView}}
+  <div>
+    <h6 class="m-5">Head</h6>
+    <p class="m-5 text-gray-800">Modify the head section of your portal html.</p>
+    <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
+    <CopyButton class="ml-5" @clipboardText="text to a be a copied">Copy</CopyButton>
+    <h6 class="m-5">Header</h6>
+    <p class="m-5 text-gray-800">Change the header area of your support portal</p>
+    <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
+    <CopyButton class="ml-5" @clipboardText="text to a be copied">Copy</CopyButton>
+    <h6 class="m-5">Footer</h6>
+    <p class="m-5 text-gray-800">Change the footer area of your support portal</p>
+    <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
+    <CopyButton class="ml-5" @clipboardText="text to a be copied">Copy</CopyButton>
+    <h6 class="m-5">Page Layout</h6>
+    <p class="m-5 text-gray-800">Customize the entire layout of your support portal</p>
+    <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
+    <CopyButton class="ml-5" @clipboardText="text to a be copied">Copy</CopyButton>
+  </div>
+{{else}}
+  <div class="flex">
+    <div class="mt-5 w-1/6">
+      {{#each pages as |page|}}
+        <a {{action "pageAction" page}} class="ml-5">{{page}}</a>
+        <br>
+      {{/each}}
+    </div>
+    <div class="p-5 w-5/6">
+      {{ember-ace lines=20 value=pageString}}
+      <CopyButton class="mt-5" @clipboardText={{pageString}}>Copy</CopyButton>
+    </div>
+  </div>
+{{/if}}
