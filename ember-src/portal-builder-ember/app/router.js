@@ -10,4 +10,5 @@ Router.map(function() {
   this.route('index', { path: '/' });
   this.route('style-guide');
   this.route('select-color-theme');
+  this.route('full-preview-route');
 });
