@@ -4,7 +4,6 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   router: service(),
-
   classNames: ['w-full', 'h-full'],
 
   iframeSrc: computed('customSrc',{
@@ -15,15 +14,15 @@ export default Component.extend({
        let html = '<body>Foo</body>';
        return html;
      }
-   } 
+   }
   }),
 
   headerContent: computed({
     get() {
-      let cssLink = document.createElement("link") 
-      cssLink.href = "https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"; 
-      cssLink .rel = "stylesheet"; 
-      cssLink .type = "text/css"; 
+      let cssLink = document.createElement("link")
+      cssLink.href = "https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css";
+      cssLink .rel = "stylesheet";
+      cssLink .type = "text/css";
 
       return cssLink;
     }
@@ -76,7 +75,7 @@ export default Component.extend({
     let list = [];
     items.forEach(element => {
       let result = `
-      <div data-component-id=${element.id} class="bg-white px-10 py-16 m-5 rounded shadow cursor-pointer 
+      <div data-component-id=${element.id} class="bg-white px-10 py-16 m-5 rounded shadow cursor-pointer
           hover:shadow-lg hover:border-2 hover: hover:border-gray-900">
         3 col layout
       </div>
