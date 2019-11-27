@@ -6,5 +6,11 @@ export default Route.extend({
       componentId,
       pageName
     };
+  },
+
+  setupController(controller, model) {
+    this._super(controller, model);
+
+    controller.addComponentToPreview(model);
   }
 });

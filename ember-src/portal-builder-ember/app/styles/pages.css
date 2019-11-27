@@ -3,4 +3,9 @@
   width: calc(100% - 15px);
   height: calc(100vh - 30px);
  }
+
+ .full-preview-class-1 {
+  width: calc(100% - 15px);
+  height: 100%;
+ } 
 /* full-page-preview page end*/

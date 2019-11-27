@@ -7,10 +7,14 @@ export default Component.extend({
 
   classNames: ['w-full', 'h-full'],
 
-  iframeSrc: computed({
+  iframeSrc: computed('customSrc',{
    get() {
-    let html = '<body>Foo</body>';
-    return html;
+     if (this.customSrc) {
+        return this.customSrc;
+     } else {
+       let html = '<body>Foo</body>';
+       return html;
+     }
    } 
   }),
 
@@ -29,10 +33,10 @@ export default Component.extend({
     get() {
       return [
         {
-          id: 'create-hero-section'
+          id: 'header1'
         },
         {
-          id: 'create-hero-section2'
+          id: 'footer1'
         },
         {
           id: 'create-hero-sectio3'
@@ -88,17 +92,19 @@ export default Component.extend({
 
       iframe.contentDocument.head.appendChild(this.headerContent);
 
-      iframe.contentDocument.body.innerHTML += this.builderComponentChooser;
+      if (this.showComponentList) {
+        iframe.contentDocument.body.innerHTML += this.builderComponentChooser;
 
-      iframe.contentDocument.body.addEventListener('click', ({ target }) => {
-        let targetComponentSelectDom = target.closest('[data-component-id]');
-        if (targetComponentSelectDom) {
-          let componentId = targetComponentSelectDom.getAttribute('data-component-id')
-          this.router.transitionTo('builder-page.new', componentId, 'portal-home');
-        } else if (target.closest('[submit-id]')) {
-          this.router.transitionTo('rendered-html');
-        }
-      });
+        iframe.contentDocument.body.addEventListener('click', ({ target }) => {
+          let targetComponentSelectDom = target.closest('[data-component-id]');
+          if (targetComponentSelectDom) {
+            let componentId = targetComponentSelectDom.getAttribute('data-component-id')
+            this.router.transitionTo('builder-page.new', componentId, 'portal-home');
+          } else if (target.closest('[submit-id]')) {
+            this.router.transitionTo('rendered-html');
+          }
+        });
+      }
     }
   }
 });

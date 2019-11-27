@@ -1,1 +1,36 @@
-{{outlet}}
+<div class="flex flex-col justify-around mt-20">
+  <div class="flex flex-col flex-1 px-5">
+    <h5 class="mb-5">Modify your component:</h5>
+    
+    <div class="bg-gray-400 border-2 border-gray-600 rounded w-full">
+      <div class="bg-white p-5 border-2 mx-2 my-5 border-gray-900 shadow rounded hover:shadow-lg">
+        sample content
+      </div>
+
+      <div class="bg-white p-5 border-2 mx-2 my-5 border-gray-900 shadow rounded hover:shadow-lg">
+        sample content
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col flex-1 px-5">
+    <h5 class="mb-5">Preview:</h5>
+    <div>
+      <FullPreview 
+        @customSrc={{iframeSrc}} 
+        @customClassNames="full-preview-class-1"/>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center my-5">
+    <button class="btn mr-5">
+      remove this from the layout!
+    </button>
+    <button class="btn btn-primary">
+      I'm done editing this component
+    </button>
+  </div>
+
+</div>
+{{!-- {{model.componentId}}
+{{model.pageName}} --}}
