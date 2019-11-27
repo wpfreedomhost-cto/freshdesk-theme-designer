@@ -11,4 +11,8 @@ Router.map(function() {
   this.route('style-guide');
   this.route('select-color-theme');
   this.route('full-preview-route');
+  this.route('builder-page', function() {
+    this.route('new', { path: ':component_id/new' });
+    this.route('edit', {path: ':component_id' });
+  });
 });

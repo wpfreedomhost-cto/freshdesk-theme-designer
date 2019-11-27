@@ -1,3 +1,6 @@
-/* select-color page start*/
-
-/* select-color page end*/
+/* full-page-preview page start*/
+ .full-preview-class {
+  width: calc(100% - 15px);
+  height: calc(100vh - 30px);
+ }
+/* full-page-preview page end*/
