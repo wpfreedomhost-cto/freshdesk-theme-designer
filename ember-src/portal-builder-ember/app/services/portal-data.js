@@ -8,11 +8,8 @@ export default Service.extend({
 
   sample: 123,
   portal: null,
-
   header: null,
-
   footer: null,
-
   pages: {
     portalHome: [],
     portalHome: [],

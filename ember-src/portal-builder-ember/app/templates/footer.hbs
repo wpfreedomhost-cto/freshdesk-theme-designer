@@ -1,0 +1,17 @@
+<div class="w-full items-center">
+  <div class="w-1/2 float-left p-10">
+    <a {{action "setInLayout"}}>{{{this.currentPageComp}}}</a>
+    <br>
+    {{#if this.footerInLayout}}
+      <LinkTo class="btn" @route="full-preview-route">go to full-preview-route</LinkTo>
+    {{/if}}
+  </div>
+  <div class="w-1/2 float-right border-l-2">
+    <div class="m-10 border-2">
+      <div class="pb-64">{{{this.portalData.header}}}</div>
+      {{#if this.footerInLayout}}
+        {{{this.currentPageComp}}}
+      {{/if}}
+    </div>
+  </div>
+</div>
