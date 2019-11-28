@@ -13,5 +13,11 @@ export default Component.extend({
     get() {
       return this.type === 'dropdown';
     }
+  }),
+
+  isObjectDropdownType: computed({
+    get() {
+      return this.type === 'objectDropdown';
+    }
   })
 });

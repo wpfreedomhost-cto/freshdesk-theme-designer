@@ -59,6 +59,12 @@ export default Controller.extend({
         set(currentPageComp, 'htmlString', htmlTemplate);
         
         this.notifyPropertyChange('currentPageComp');
+      } else if(option.type === 'objectDropdown') {
+        currentPageComp.selectedOptions[option.keyName] = selected;
+        let htmlTemplate = await this.getHtml(currentPageComp.constructLiquidString(currentPageComp.selectedOptions));
+        set(currentPageComp, 'htmlString', htmlTemplate);
+        
+        this.notifyPropertyChange('currentPageComp');
       }
     },
 

@@ -12,7 +12,8 @@ export default Controller.extend({
     let component = portalTemplates[componentId]();
     // translate liquid template to htmlTemplate
     let htmlTemplate = await this.getHtml(component.constructLiquidString(selectedOptions));
-    set(this, 'currentPageComp', htmlTemplate);
+    component.htmlString = htmlTemplate;
+    set(this, 'currentPageComp', component);
   },
   async getHtml(liquidTemplate) {
     let portalData = await this.portalData.loadData();
@@ -20,9 +21,16 @@ export default Controller.extend({
     return htmlTemplate;
   },
   actions: {
+    async updateField(currentPageComp, option, selected) {
+      currentPageComp.selectedOptions[option.keyName] = selected.target.value;
+      let htmlTemplate = await this.getHtml(currentPageComp.constructLiquidString(currentPageComp.selectedOptions));
+      set(currentPageComp, 'htmlString', htmlTemplate);
+
+      this.notifyPropertyChange('currentPageComp');
+    },
     setInLayout() {
       set(this, 'footerInLayout', !get(this, 'footerInLayout'));
-      set(this, 'portalData.footer', get(this, 'currentPageComp'));
+      set(this, 'portalData.footer', get(this, 'currentPageComp.htmlString'));
     }
   }
 });
