@@ -34,19 +34,12 @@ export default Component.extend({
     get() {
       return [
         {
-          id: 'header1',
-          name: 'header'
-        },
-        {
-          id: 'footer1',
-          name: 'footer'
-        },
-        {
           id: 'cardList',
           name: 'card list'
         },
         {
-          id: 'create-hero-sectio4'
+          id: 'heroSection1',
+          name: 'search hero'
         },
         {
           id: 'heroFooter1',
