@@ -9,6 +9,7 @@ export default class Router extends EmberRouter {
 Router.map(function() {
   this.route('index', { path: '/' });
   this.route('style-guide');
+  this.route('select-font-style');
   this.route('select-color-theme');
   this.route('full-preview-route');
   this.route('rendered-html');

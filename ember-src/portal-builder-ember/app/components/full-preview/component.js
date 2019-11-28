@@ -78,7 +78,7 @@ export default Component.extend({
     items.forEach(element => {
       let result = `
       <div data-component-id=${element.id} 
-          class="bg-white w-40 px-10 py-16 m-5 rounded shadow cursor-pointer flex items-center justify-center
+          class="bg-white w-40 px-10 py-16 m-5 rounded shadow cursor-pointer flex items-center justify-center text-center
           hover:shadow-lg hover:border-2 hover: hover:border-gray-900">
         ${element.name}
       </div>

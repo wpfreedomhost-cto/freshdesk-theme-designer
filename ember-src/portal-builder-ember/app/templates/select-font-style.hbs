@@ -1,0 +1,12 @@
+<div class="flex flex-col items-center justify-center">
+  <h4 class="mt-10 mb-12">
+    Which if these fonts best describe your company style?
+  </h4>
+
+  <div class="flex flex-wrap w-3/4 items-center justify-center">
+    {{#each this.fontList as |fontItem|}}
+        <img {{action 'handleFontClick' fontItem}}
+          class="w-64 p-2 cursor-pointer hover:shadow" src={{fontItem.link}} alt="font">
+    {{/each}}
+  </div>
+</div>
