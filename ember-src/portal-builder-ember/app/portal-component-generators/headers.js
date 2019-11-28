@@ -59,7 +59,8 @@ export const header1 = () => {
     selectedOptions: {
       listName: 'portal.solution_categories',
       listItemPath: 'name',
-      bgColor: {id: 'teal', class: 'bg-teal-500'}
+      bgColor: {id: 'teal', class: 'bg-teal-500'},
+      domainName: 'your company'
     }
   }
 };
