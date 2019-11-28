@@ -12,4 +12,12 @@
     @onChange={{this.update}} as |name|>
     {{name}}
   </PowerSelect>
+{{else if this.isObjectDropdownType}}
+  <PowerSelect 
+    @options={{this.options}} 
+    @selected={{this.selected}}
+    @onChange={{this.update}} as |object|>
+    <span class="{{object.class}} p-1 rounded-full">O</span>
+    {{object.id}}
+  </PowerSelect>
 {{/if}}

@@ -4,12 +4,13 @@ export const heroSection1 = () => {
 
     constructLiquidString: ({
       headText,
-      searchText
+      searchText,
+      bgColor
     }) => {
       return `
       <div class="h-2 bg-indigo"></div>
       <div class="flex items-center justify-center">
-        <div class="container mx-24 bg-white rounded shadow-lg">
+        <div class="container mx-24 ${bgColor.class} rounded shadow-lg">
           <div class="px-12 py-6">
             <div class="text-center">
               <h1 class="font-normal text-3xl text-grey-darkest leading-loose my-3 w-full">${headText}</h1>
@@ -49,12 +50,24 @@ export const heroSection1 = () => {
         keyName: 'searchText',
         value: '',
         type: 'text'
+      },
+      {
+        name: 'select color',
+        keyName: 'bgColor',
+        values: [
+                  {id: 'blue', class: 'bg-indigo-500'},
+                  {id: 'orange', class: 'bg-orange-500'},
+                  {id: 'green', class: 'bg-green-500'},
+                  {id: 'pink', class: 'bg-pink-500'}
+             ],
+        type: 'objectDropdown'
       }
     ],
 
     selectedOptions: {
       headText: 'What are you looking for?',
-      searchText: 'Start search'
+      searchText: 'Start search',
+      bgColor: {id: 'blue', class: 'bg-indigo-500'}
     }
   }
 };
