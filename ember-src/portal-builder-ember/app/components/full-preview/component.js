@@ -40,6 +40,9 @@ export default Component.extend({
           id: 'footer1'
         },
         {
+          id: 'heroSection1'
+        },
+        {
           id: 'create-hero-sectio3'
         },
         {
