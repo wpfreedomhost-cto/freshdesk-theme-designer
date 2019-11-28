@@ -54,7 +54,11 @@ export default Controller.extend({
 
         // set(this, 'currentPageComp', currentPageComp);
       } else if(option.type === 'text') {
-        console.log('text called');
+        currentPageComp.selectedOptions[option.keyName] = selected.target.value;
+        let htmlTemplate = await this.getHtml(currentPageComp.constructLiquidString(currentPageComp.selectedOptions));
+        set(currentPageComp, 'htmlString', htmlTemplate);
+        
+        this.notifyPropertyChange('currentPageComp');
       }
     },
 
