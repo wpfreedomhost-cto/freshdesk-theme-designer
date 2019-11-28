@@ -44,6 +44,9 @@ export default Component.extend({
         },
         {
           id: 'create-hero-sectio4'
+        },
+        {
+          id: 'heroFooter1'
         }
       ]
     }

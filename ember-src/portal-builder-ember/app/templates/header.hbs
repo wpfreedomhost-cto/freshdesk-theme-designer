@@ -1,0 +1,16 @@
+<div class="w-full">
+  <div class="w-1/2 float-left p-10">
+    <a {{action "setInLayout"}}>{{{this.currentPageComp}}}</a>
+    <br>
+    {{#if this.headerInLayout}}
+      <LinkTo class="btn" @route="footer" disabled=> Next </LinkTo>
+    {{/if}}
+  </div>
+  <div class="w-1/2 float-right border-l-2">
+    <div class="m-10 pb-64 border-2">
+      {{#if this.headerInLayout}}
+        {{{this.currentPageComp}}}
+      {{/if}}
+    </div>
+  </div>
+</div>

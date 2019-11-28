@@ -16,4 +16,6 @@ Router.map(function() {
     this.route('new', { path: ':component_id/:page_name/new' });
     this.route('edit', {path: ':component_id/:page_name' });
   });
+  this.route('header');
+  this.route('footer');
 });
