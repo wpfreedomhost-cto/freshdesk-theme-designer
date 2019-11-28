@@ -34,7 +34,6 @@
       {{/each-in}}
     </div>
     <div class="p-5 w-5/6">
-      {{log 'sdasf' this.pageString}}
       {{ember-ace lines=30 value=this.pageString}}
       <CopyButton class="mt-5" @clipboardText={{pageString}}>Copy</CopyButton>
     </div>

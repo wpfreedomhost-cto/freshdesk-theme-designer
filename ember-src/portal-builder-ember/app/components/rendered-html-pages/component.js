@@ -21,6 +21,10 @@ export default Component.extend({
       return PAGES;
     }
   }),
+  init() {
+    this._super(...arguments);
+    set(this, 'portalData.currentPage', "portalHome");
+  },
   pageString: computed('portalData.currentPage', {
       get() {
         let currentPage = this.portalData.currentPage;
