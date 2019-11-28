@@ -2,6 +2,8 @@ import Service from '@ember/service';
 import { isEmpty } from '@ember/utils';
 import { set } from '@ember/object';
 import { setProperties } from '@ember/object';
+import { layout } from 'portal-builder-ember/portal-component-generators/layout';
+import { head } from 'portal-builder-ember/portal-component-generators/head';
 
 // const SOLUTIONS_DATA = "solutions home";
 export default Service.extend({
@@ -10,6 +12,8 @@ export default Service.extend({
   portal: null,
   header: null,
   footer: null,
+  head: head().constructLiquidString(),
+  layout: layout().constructLiquidString(),
   pages: {
     portalHome: [],
     solutionsHome: [],

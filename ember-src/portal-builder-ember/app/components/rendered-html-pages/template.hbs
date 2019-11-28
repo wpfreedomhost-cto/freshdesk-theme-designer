@@ -10,8 +10,8 @@
   <div>
     <h6 class="m-5">Head</h6>
     <p class="m-5 text-gray-800">Modify the head section of your portal html.</p>
-    <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
-    <CopyButton class="ml-5" @clipboardText="text to a be a copied">Copy</CopyButton>
+    <div class="m-5">{{ember-ace lines=10 value=this.portalData.head}}</div>
+    <CopyButton class="ml-5" @clipboardText={{this.portalData.head}}>Copy</CopyButton>
     <h6 class="m-5">Header</h6>
     <p class="m-5 text-gray-800">Change the header area of your support portal</p>
     <div class="m-5">{{ember-ace lines=10 value=this.portalData.header}}</div>
@@ -22,8 +22,8 @@
     <CopyButton class="ml-5" @clipboardText={{this.portalData.footer}}>Copy</CopyButton>
     <h6 class="m-5">Page Layout</h6>
     <p class="m-5 text-gray-800">Customize the entire layout of your support portal</p>
-    <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
-    <CopyButton class="ml-5" @clipboardText="text to a be copied">Copy</CopyButton>
+    <div class="m-5">{{ember-ace lines=10 value=this.portalData.layout}}</div>
+    <CopyButton class="ml-5" @clipboardText={{this.portalData.layout}}>Copy</CopyButton>
   </div>
 {{else}}
   <div class="flex">
