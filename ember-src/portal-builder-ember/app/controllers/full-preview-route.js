@@ -25,10 +25,11 @@ export default Controller.extend({
 
   fullPageSource: computed('portalData.currentPage', {
       get() {
+        let headerHtml = this.portalData.header
         let currentPage = this.portalData.currentPage;
         let array = this.portalData.pages[currentPage] || [];
-        
-        return array.map(item => item.htmlString).join(' ');
+        let footerHtml = this.portalData.footer
+        return headerHtml + array.map(item => item.htmlString).join(' ') + footerHtml;
       }
   }),
 
