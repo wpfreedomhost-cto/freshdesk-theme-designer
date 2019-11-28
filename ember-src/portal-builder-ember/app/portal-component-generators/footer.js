@@ -28,13 +28,13 @@ export const footer1 = () => {
                         <p class="uppercase text-grey text-sm sm:mb-6">${headText1}</p>
                         <ul class="list-reset text-xs mb-6">
                             <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
-                                <a href=${link1Url} class="text-grey hover:text-grey-dark">${link1}</a>
+                                <a href="${link1Url}" class="text-grey hover:text-grey-dark">${link1}</a>
                             </li>
                             <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
-                                <a href=${link2Url} class="text-grey hover:text-grey-dark">${link2}</a>
+                                <a href="${link2Url}" class="text-grey hover:text-grey-dark">${link2}</a>
                             </li>
                             <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
-                                <a href=${link3Url} class="text-grey hover:text-grey-dark">${link3}</a>
+                                <a href="${link3Url}" class="text-grey hover:text-grey-dark">${link3}</a>
                             </li>
                         </ul>
                     </div>
@@ -42,7 +42,7 @@ export const footer1 = () => {
                         <p class="uppercase text-grey text-sm sm:mb-6">${headText2}</p>
                         <ul class="list-reset text-xs mb-6">
                             <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
-                                <a href=${legal1Url} class="text-grey hover:text-grey-dark">${legal1}</a>
+                                <a href="${legal1Url}" class="text-grey hover:text-grey-dark">${legal1}</a>
                             </li>
                         </ul>
                     </div>
@@ -50,7 +50,7 @@ export const footer1 = () => {
                         <p class="uppercase text-grey text-sm sm:mb-6">${headText3}</p>
                         <ul class="list-reset text-xs mb-6">
                             <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
-                                <a href=${social1Url} class="text-grey hover:text-grey-dark">${social1}</a>
+                                <a href="${social1Url}" class="text-grey hover:text-grey-dark">${social1}</a>
                             </li>
                         </ul>
                     </div>
@@ -58,7 +58,7 @@ export const footer1 = () => {
                         <p class="uppercase text-grey text-sm sm:mb-6">${headText4}</p>
                         <ul class="list-reset text-xs mb-6">
                             <li class="mt-2 inline-block mr-2 sm:block sm:mr-0">
-                                <a href=${company1Url} class="text-grey hover:text-grey-dark">${company1}</a>
+                                <a href="${company1Url}" class="text-grey hover:text-grey-dark">${company1}</a>
                             </li>
                         </ul>
                     </div>
