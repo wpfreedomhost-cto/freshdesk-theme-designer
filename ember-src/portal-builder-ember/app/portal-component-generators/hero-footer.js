@@ -6,10 +6,10 @@ export const heroFooter1 = () => {
       headText,
       subText,
       buttonText,
-      linkUrl
+      linkUrl,
+      bgColor
     }) => {
-      return `<div
-      style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)">
+      return `<div class="${bgColor.class}">
       <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold mb-2 text-white">
           ${headText}
@@ -43,6 +43,18 @@ export const heroFooter1 = () => {
         keyName: 'buttonText',
         value: '',
         type: 'text'
+      },
+      {
+        name: 'select color',
+        keyName: 'bgColor',
+        values: [
+                  {id: 'blue', class: 'bg-indigo-500'},
+                  {id: 'orange', class: 'bg-orange-500'},
+                  {id: 'green', class: 'bg-green-500'},
+                  {id: 'pink', class: 'bg-pink-500'},
+                  {id: 'teal', class: 'bg-teal-500'}
+             ],
+        type: 'objectDropdown'
       }
     ],
 
@@ -50,7 +62,8 @@ export const heroFooter1 = () => {
       headText: 'Sign up for Freshsales today',
       subText: 'Start your 21-day free trial. No credit card required. No strings attached.', // for articles use title,
       buttonText: 'Start free trial',
-      linkUrl: 'www.google.com'
+      linkUrl: 'www.google.com',
+      bgColor: {id: 'teal', class: 'bg-teal-500'}
     }
   }
 };

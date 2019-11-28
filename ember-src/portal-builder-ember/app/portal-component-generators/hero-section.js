@@ -58,7 +58,8 @@ export const heroSection1 = () => {
                   {id: 'blue', class: 'bg-indigo-500'},
                   {id: 'orange', class: 'bg-orange-500'},
                   {id: 'green', class: 'bg-green-500'},
-                  {id: 'pink', class: 'bg-pink-500'}
+                  {id: 'pink', class: 'bg-pink-500'},
+                  {id: 'teal', class: 'bg-teal-500'}
              ],
         type: 'objectDropdown'
       }
