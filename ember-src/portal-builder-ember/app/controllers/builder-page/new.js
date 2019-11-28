@@ -7,25 +7,29 @@ import LiquidEngine from 'portal-builder-ember/utils/liquid-renderer';
 
 export default Controller.extend({
   portalData: service(),
+  router: service(),
 
   async getHtml(liquidTemplate) {
     let portalData = await this.portalData.loadData();
     let htmlTemplate = await LiquidEngine(liquidTemplate, { portal: portalData });
     return htmlTemplate;
   },
+
   currentPageComp: computed({
     get() {
-      return this.portalData.pages[this.model.pageName] || {};
+      return null;
     }
   }),
 
-  iframeSrc: computed('portalData.pages.pageName', 'model.{pageName,component}', {
+  iframeSrc: computed('currentPageComp', {
     get() {
-      let currentPageComp = this.portalData.pages[this.model.pageName]
+      let currentPageComp = this.currentPageComp;
+
       if (currentPageComp) {
         return currentPageComp.htmlString;
       }
-      return 'hello';
+
+      return '<div>loading</div>';
     }
   }),
 
@@ -36,7 +40,20 @@ export default Controller.extend({
     let htmlTemplate = await this.getHtml(component.constructLiquidString(selectedOptions));
     component.htmlString = htmlTemplate;
 
-    set(this.portalData.pages, pageName, component);
-    this.notifyPropertyChange('iframeSrc');
+    set(this, 'currentPageComp', component);
+  },
+
+  actions: {
+    updateField(currentPageComp, option, selected) {
+      if (option.type === 'dropdown') {
+        debugger
+      }
+    },
+
+    doneSave() {
+      this.portalData.pages[this.model.pageName].push(this.currentPageComp);
+      
+      this.router.transitionTo('full-preview-route');
+    }
   }
 });

@@ -11,35 +11,10 @@ export default Service.extend({
 
   pages: {
     portalHome: [
-      {
-        name: 'header',
-        htmlString: `<html><b>boll</b><br>`
-      },
-      {
-        name: 'section',
-        htmlString: `<b>section</b><br>`
-      },
-      {
-        name: 'footer',
-        htmlString: `<b>boll</b><br></html>`
-      },
-    ],
-    solutionsHome: [
-      {
-        name: 'header',
-        htmlString: `<html><b>bolly</b><br>`
-      },
-      {
-        name: 'section',
-        htmlString: `<b>sectiony</b><br>`
-      },
-      {
-        name: 'footer',
-        htmlString: `<b>bolly</b></html>`
-      },
     ]
-
   },
+
+  currentPage: 'portalHome',
 
   async resolveRequest(api) {
     let iparams = await window.client.iparams.get();

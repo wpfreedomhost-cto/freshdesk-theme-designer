@@ -4,12 +4,14 @@ import { inject as service } from '@ember/service';
 
 export default Component.extend({
   router: service(),
+  portalData: service(),
+
   classNames: ['w-full', 'h-full'],
 
   iframeSrc: computed('customSrc', {
    get() {
      if (this.customSrc) {
-        return this.customSrc[0].htmlString + this.customSrc[1].htmlString + this.customSrc[2].htmlString
+        return this.customSrc
      } else {
        let html = '<body>Foo</body>';
        return html;
@@ -98,7 +100,7 @@ export default Component.extend({
           let targetComponentSelectDom = target.closest('[data-component-id]');
           if (targetComponentSelectDom) {
             let componentId = targetComponentSelectDom.getAttribute('data-component-id')
-            this.router.transitionTo('builder-page.new', componentId, 'portal-home');
+            this.router.transitionTo('builder-page.new', componentId, this.portalData.currentPage);
           } else if (target.closest('[submit-id]')) {
             this.router.transitionTo('rendered-html');
           }

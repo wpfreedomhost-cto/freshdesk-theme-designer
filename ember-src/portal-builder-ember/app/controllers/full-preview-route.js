@@ -13,7 +13,7 @@ const SIDEBAR_SECTION = {
   topicList: "Topic list"
 }
 export default Controller.extend({
-  data: service('portal-data'),
+  portalData: service('portal-data'),
 
   showSidebar: true,
   sidebarSection: computed({
@@ -22,9 +22,12 @@ export default Controller.extend({
     }
   }),
 
-  fullPageSource: computed('data.pages', {
+  fullPageSource: computed('portalData.currentPage', {
       get() {
-        return this.data.get('pages.portalHome');
+        let currentPage = this.portalData.currentPage;
+        let array = this.portalData.pages[currentPage] || [];
+        
+        return array.map(item => item.htmlString).join(' ');
       }
   }),
 
@@ -33,7 +36,8 @@ export default Controller.extend({
       set(this, 'showSidebar', !get(this, 'showSidebar'))
     },
     transitionToCurrentPage(currentPage) {
-      set(this, 'fullPageSource', this.data.get(`pages.${currentPage}`));
+      set(this, 'portalData.currentPage', currentPage);
+      // this.notifyPropertyChange('fullPageSource');
     }
   }
 });
