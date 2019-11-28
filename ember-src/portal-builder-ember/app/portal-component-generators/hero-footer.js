@@ -11,17 +11,18 @@ export const heroFooter1 = () => {
     }) => {
       return `<div class="${bgColor.class}">
       <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-bold mb-2 text-white">
+        <h2 class="text-4xl font-bold mb-2 text-white text-center pt-5">
           ${headText}
         </h2>
-        <h3 class="text-2xl mb-8 text-gray-200">
+        <h3 class="text-2xl mb-8 text-gray-200 text-center">
           ${subText}
         </h3>
-        <button
-          class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider"
-        >
-          ${buttonText}
-        </button>
+        <div class="flex items-center justify-center pb-5">
+          <button
+            class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider hover:shadow">
+            ${buttonText}
+          </button>
+        </div>
       </div>
     </div>`
     },

@@ -8,9 +8,8 @@ export const heroSection1 = () => {
       bgColor
     }) => {
       return `
-      <div class="h-2 bg-indigo"></div>
       <div class="flex items-center justify-center">
-        <div class="container mx-24 ${bgColor.class} rounded shadow-lg">
+        <div class="${bgColor.class} w-full">
           <div class="px-12 py-6">
             <div class="text-center">
               <h1 class="font-normal text-3xl text-grey-darkest leading-loose my-3 w-full">${headText}</h1>
