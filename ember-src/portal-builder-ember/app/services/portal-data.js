@@ -3,13 +3,43 @@ import { isEmpty } from '@ember/utils';
 import { set } from '@ember/object';
 import { setProperties } from '@ember/object';
 
-const SOLUTIONS_DATA = "solutions home";
+// const SOLUTIONS_DATA = "solutions home";
 export default Service.extend({
-  
+
   sample: 123,
   portal: null,
 
-  pages: {},
+  pages: {
+    portalHome: [
+      {
+        name: 'header',
+        htmlString: `<html><b>boll</b><br>`
+      },
+      {
+        name: 'section',
+        htmlString: `<b>section</b><br>`
+      },
+      {
+        name: 'footer',
+        htmlString: `<b>boll</b><br></html>`
+      },
+    ],
+    solutionsHome: [
+      {
+        name: 'header',
+        htmlString: `<html><b>bolly</b><br>`
+      },
+      {
+        name: 'section',
+        htmlString: `<b>sectiony</b><br>`
+      },
+      {
+        name: 'footer',
+        htmlString: `<b>bolly</b></html>`
+      },
+    ]
+
+  },
 
   async resolveRequest(api) {
     let iparams = await window.client.iparams.get();
@@ -39,7 +69,7 @@ export default Service.extend({
     let _this = this;
     let foldersApi = `api/v2/solutions/categories/${category.id}/folders`
     let data = await this.resolveRequest(foldersApi);
-    
+
     let folders = [];
     data.forEach(async function (folder) {
       folder = await _this._loadArticles(folder);

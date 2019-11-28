@@ -6,10 +6,10 @@ export default Component.extend({
   router: service(),
   classNames: ['w-full', 'h-full'],
 
-  iframeSrc: computed('customSrc',{
+  iframeSrc: computed('customSrc', {
    get() {
      if (this.customSrc) {
-        return this.customSrc;
+        return this.customSrc[0].htmlString + this.customSrc[1].htmlString + this.customSrc[2].htmlString
      } else {
        let html = '<body>Foo</body>';
        return html;

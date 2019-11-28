@@ -14,19 +14,26 @@ const SIDEBAR_SECTION = {
 }
 export default Controller.extend({
   data: service('portal-data'),
+
   showSidebar: true,
-  currentPage: 'html',
   sidebarSection: computed({
     get() {
       return SIDEBAR_SECTION;
     }
   }),
+
+  fullPageSource: computed('data.pages', {
+      get() {
+        return this.data.get('pages.portalHome');
+      }
+  }),
+
   actions: {
     toggleSidebar() {
       set(this, 'showSidebar', !get(this, 'showSidebar'))
     },
     transitionToCurrentPage(currentPage) {
-      set(this, 'currentPage', currentPage);
+      set(this, 'fullPageSource', this.data.get(`pages.${currentPage}`));
     }
   }
 });
