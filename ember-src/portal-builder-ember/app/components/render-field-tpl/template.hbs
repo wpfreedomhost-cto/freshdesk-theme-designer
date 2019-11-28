@@ -6,6 +6,7 @@
 {{else if this.isDropdownType}}
   <PowerSelect 
     @options={{this.options}} 
+    @selected={{this.selected}}
     @onChange={{this.update}} as |name|>
     {{name}}
   </PowerSelect>

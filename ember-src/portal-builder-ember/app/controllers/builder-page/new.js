@@ -26,10 +26,10 @@ export default Controller.extend({
       let currentPageComp = this.currentPageComp;
 
       if (currentPageComp) {
-        return currentPageComp.htmlString;
+        return currentPageComp;
       }
 
-      return '<div>loading</div>';
+      return { htmlString: '<div>loading</div>' };
     }
   }),
 
@@ -44,9 +44,17 @@ export default Controller.extend({
   },
 
   actions: {
-    updateField(currentPageComp, option, selected) {
+    async updateField(currentPageComp, option, selected) {
       if (option.type === 'dropdown') {
-        debugger
+        currentPageComp.selectedOptions[option.keyName] = selected;
+        let htmlTemplate = await this.getHtml(currentPageComp.constructLiquidString(currentPageComp.selectedOptions));
+        set(currentPageComp, 'htmlString', htmlTemplate);
+        
+        this.notifyPropertyChange('currentPageComp');
+
+        // set(this, 'currentPageComp', currentPageComp);
+      } else if(option.type === 'text') {
+        console.log('text called');
       }
     },
 

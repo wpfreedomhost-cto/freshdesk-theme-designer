@@ -9,9 +9,20 @@ export default Service.extend({
   sample: 123,
   portal: null,
 
+  header: null,
+
+  footer: null,
+
   pages: {
-    portalHome: [
-    ]
+    portalHome: [],
+    portalHome: [],
+    solutionsHome: [],
+    discussionsHome: [],
+    discussions: [],
+    newTicket: [],
+    ticketList: [],
+    ticketDetails: [],
+    topicList: [],
   },
 
   currentPage: 'portalHome',

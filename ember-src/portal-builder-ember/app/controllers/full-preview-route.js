@@ -37,7 +37,6 @@ export default Controller.extend({
     },
     transitionToCurrentPage(currentPage) {
       set(this, 'portalData.currentPage', currentPage);
-      // this.notifyPropertyChange('fullPageSource');
     }
   }
 });
