@@ -21,7 +21,7 @@ export const header1 = () => {
             <div class="text-sm lg:flex-grow">
               {% for result in ${listName} %}
                 <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
-                  {{ ${listItemPath} }}
+                  {{ result.${listItemPath} }}
                 </a>
               {% endfor %}
             </div>
@@ -32,25 +32,24 @@ export const header1 = () => {
         </nav>
       `
     },
-
     options: [
       {
         name: 'loop through',
         keyName: 'listName',
-        values: ['solutions', 'portal'],
+        values: ['portal.solution_categories'],
         type: 'dropdown'
       },
       {
         name: 'and show value',
         keyName: 'listItemPath',
-        values: ['name', 'domainName'],
+        values: ['name', 'description'],
         type: 'dropdown'
       }
     ],
 
     selectedOptions: {
-      listName: 'solutions',
-      listItemPath: 'name'
+      listName: 'portal.solution_categories',
+      listItemPath: 'name' // for articles use title
     }
   }
 };

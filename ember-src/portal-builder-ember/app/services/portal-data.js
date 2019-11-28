@@ -5,7 +5,9 @@ import { setProperties } from '@ember/object';
 
 const SOLUTIONS_DATA = "solutions home";
 export default Service.extend({
+  
   sample: 123,
+  portal: null,
 
   pages: {},
 
@@ -24,10 +26,11 @@ export default Service.extend({
 
   async _loadArticles(folder) {
     let articlesApi = `api/v2/solutions/folders/${folder.id}/articles`
-    let data = await this.resolveRequest(articlesApi);
+    let articles = await this.resolveRequest(articlesApi);
+
     setProperties(folder, {
-      articles_count: data.length,
-      articles: data
+      articles_count: articles.length,
+      articles
     })
     return folder;
   },
@@ -50,7 +53,7 @@ export default Service.extend({
     return category;
   },
 
-  async loadData(context) {
+  async loadData() {
     let _this = this;
     if (isEmpty(this.portal)) {
       let categoriesApi = 'api/v2/solutions/categories';
@@ -63,6 +66,6 @@ export default Service.extend({
       });
       set(this, 'portal', { solution_categories });
     }
-    set(context, 'portal', this.portal);
+    return this.portal;
   }
 });
