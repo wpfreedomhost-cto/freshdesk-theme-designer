@@ -34,19 +34,23 @@ export default Component.extend({
     get() {
       return [
         {
-          id: 'header1'
+          id: 'header1',
+          name: 'header'
         },
         {
-          id: 'footer1'
+          id: 'footer1',
+          name: 'footer'
         },
         {
-          id: 'create-hero-sectio3'
+          id: 'cardList',
+          name: 'card list'
         },
         {
           id: 'create-hero-sectio4'
         },
         {
-          id: 'heroFooter1'
+          id: 'heroFooter1',
+          name: 'hero footer block'
         }
       ]
     }
@@ -80,9 +84,10 @@ export default Component.extend({
     let list = [];
     items.forEach(element => {
       let result = `
-      <div data-component-id=${element.id} class="bg-white px-10 py-16 m-5 rounded shadow cursor-pointer
+      <div data-component-id=${element.id} 
+          class="bg-white w-40 px-10 py-16 m-5 rounded shadow cursor-pointer flex items-center justify-center
           hover:shadow-lg hover:border-2 hover: hover:border-gray-900">
-        3 col layout
+        ${element.name}
       </div>
       `
       list.push(result);

@@ -7,5 +7,8 @@
  .full-preview-class-1 {
   width: calc(100% - 15px);
   height: 100%;
+  min-height: 250px;
+  border: 2px solid #DBDDE0;
+  border-radius: 4px;
  } 
 /* full-page-preview page end*/
