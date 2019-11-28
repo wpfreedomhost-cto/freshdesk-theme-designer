@@ -15,8 +15,8 @@
       <div class="w-full md:w-5/6 bg-gray-100">
         <div class="container bg-gray-100 pt-16 px-6">
           <PageChooserModal/>
-          
           <FullPreview
+            @currentPage={{currentPage}}
             @showComponentList=true
               @customClassNames="full-preview-class"/>
         </div>
@@ -27,46 +27,13 @@
           <a {{action "toggleSidebar"}}><svg class="fill-current text-teal-500 h-6 w-6 float-right"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM11.4 10l2.83-2.83-1.41-1.41L10 8.59 7.17 5.76 5.76 7.17 8.59 10l-2.83 2.83 1.41 1.41L10 11.41l2.83 2.83 1.41-1.41L11.41 10z"/></svg></a>
           <div class="absolute mx-auto float-right px-6 pt-6">
             <ul class="list-reset flex flex-row md:flex-col text-center md:text-left">
-              <li class="mr-3 flex-1">
-                <a href="#" class="block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
-                  <span class="pb-1 md:pb-0 text-xs md:text-base md:text-gray-400 block md:inline-block">Portal home</span>
-                </a>
-              </li>
-              <li class="mr-3 flex-1">
-                <a href="#" class="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-green-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
-                  <span class="pb-1 md:pb-0 text-xs md:text-base md:text-gray-400 block md:inline-block">Solutions home</span>
-                </a>
-              </li>
-              <li class="mr-3 flex-1">
-                <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-green-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
-                  <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 md:font-bold block md:inline-block">Discussions home</span>
-                </a>
-              </li>
-              <li class="mr-3 flex-1">
-                <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-green-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
-                  <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Discussions</span>
-                </a>
-              </li>
-              <li class="mr-3 flex-1">
-                <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-green-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
-                  <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">New Ticket</span>
-                </a>
-              </li>
-              <li class="mr-3 flex-1">
-                <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-green-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
-                  <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Tickets list</span>
-                </a>
-              </li>
-              <li class="mr-3 flex-1">
-                <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-green-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
-                  <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Ticket details</span>
-                </a>
-              </li>
-              <li class="mr-3 flex-1">
-                <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-green-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
-                  <span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Topic list</span>
-                </a>
-              </li>
+              {{#each-in sidebarSection as |key value|}}
+                <li class="mr-3 flex-1">
+                  <a {{action "transitionToCurrentPage" key}} class="bg-transparent block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 border-gray-800 md:border-gray-900 hover:border-green-500">
+                    <span class="pb-1 md:pb-0 text-xs md:text-base md:text-gray-400 block md:inline-block">{{value}}</span>
+                  </a>
+                </li>
+              {{/each-in}}
             </ul>
           </div>
         </div>
