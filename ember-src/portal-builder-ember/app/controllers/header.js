@@ -1,19 +1,23 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import portalTemplates from 'portal-builder-ember/portal-component-generators/all';
-import { get, set } from '@ember/object';
+import { set } from '@ember/object';
 import LiquidEngine from 'portal-builder-ember/utils/liquid-renderer';
 
 export default Controller.extend({
   portalData: service('portal-data'),
   headerInLayout: false,
+
   async addComponentToPreview(componentId) {
     let selectedOptions = portalTemplates[componentId]().selectedOptions;
     let component = portalTemplates[componentId]();
     // translate liquid template to htmlTemplate
-    let htmlTemplate = await this.getHtml(component.constructLiquidString(selectedOptions));
+    let liquidTemplate = component.constructLiquidString(selectedOptions);
+
+    let htmlTemplate = await this.getHtml(liquidTemplate);
     component.htmlString = htmlTemplate;
     set(this, 'currentPageComp', component);
+
   },
 
   async getHtml(liquidTemplate) {
@@ -21,18 +25,22 @@ export default Controller.extend({
     let htmlTemplate = await LiquidEngine(liquidTemplate, { portal: portalData });
     return htmlTemplate;
   },
+
+
   actions: {
     async updateField(currentPageComp, option, selected) {
       currentPageComp.selectedOptions[option.keyName] = selected;
-      let htmlTemplate = await this.getHtml(currentPageComp.constructLiquidString(currentPageComp.selectedOptions));
+
+      let liquidTemplate = currentPageComp.constructLiquidString(currentPageComp.selectedOptions);
+
+      let htmlTemplate = await this.getHtml(liquidTemplate);
       set(currentPageComp, 'htmlString', htmlTemplate);
 
       this.notifyPropertyChange('currentPageComp');
     },
 
-    setInLayout() {
-      set(this, 'headerInLayout', !get(this, 'headerInLayout'));
-      set(this, 'portalData.header', get(this, 'currentPageComp.htmlString'));
+    doneSave() {
+      set(this, 'portalData.header', this.currentPageComp);
     }
   }
 });

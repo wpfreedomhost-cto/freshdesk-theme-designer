@@ -22,17 +22,15 @@
       </div>
     </div>
     <br>
-    <a {{action "setInLayout"}}>{{{this.currentPageComp.htmlString}}}</a>
     <br>
-    {{#if this.headerInLayout}}
-      <LinkTo class="btn" @route="footer" disabled=> Next </LinkTo>
-    {{/if}}
+    
+    <LinkTo class="btn" @route="footer" disabled=>
+      <span {{action 'doneSave'}}> Next</span>
+    </LinkTo>
   </div>
   <div class="w-1/2 float-right border-l-2">
     <div class="m-10 pb-64 border-2">
-      {{#if this.headerInLayout}}
-        {{{this.currentPageComp.htmlString}}}
-      {{/if}}
+      {{{this.currentPageComp.htmlString}}}
     </div>
   </div>
 </div>

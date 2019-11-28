@@ -8,7 +8,6 @@ import { head } from 'portal-builder-ember/portal-component-generators/head';
 // const SOLUTIONS_DATA = "solutions home";
 export default Service.extend({
 
-  sample: 123,
   portal: null,
   header: null,
   footer: null,
