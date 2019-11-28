@@ -15,7 +15,8 @@ const SIDEBAR_SECTION = {
 export default Controller.extend({
   portalData: service('portal-data'),
 
-  showSidebar: true,
+  showSidebar: false,
+
   sidebarSection: computed({
     get() {
       return SIDEBAR_SECTION;

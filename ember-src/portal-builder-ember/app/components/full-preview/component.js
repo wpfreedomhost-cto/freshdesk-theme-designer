@@ -13,7 +13,7 @@ export default Component.extend({
      if (this.customSrc) {
         return this.customSrc
      } else {
-       let html = '<body>Foo</body>';
+       let html = '';
        return html;
      }
    }
@@ -52,7 +52,7 @@ export default Component.extend({
   builderComponentChooser: computed({
     get() {
       return `
-        <div class="bg-gray-100 py-10 w-full flex items-center justify-center">
+        <div class="bg-gray-100 py-5 w-full flex items-center justify-center">
           <div class="p-5 bg-gray-400 flex flex-col rounded">
             <div class="flex flex-col items-center">
                 <div class="text-lg"> What Would You Like to Add Next ? </div>
