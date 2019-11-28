@@ -21,7 +21,6 @@ export default Controller.extend({
   },
   actions: {
     setInLayout() {
-      debugger;
       set(this, 'headerInLayout', !get(this, 'headerInLayout'));
       set(this, 'portalData.header', get(this, 'currentPageComp'));
     }

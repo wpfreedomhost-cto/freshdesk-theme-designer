@@ -12,7 +12,6 @@ export default Service.extend({
   footer: null,
   pages: {
     portalHome: [],
-    portalHome: [],
     solutionsHome: [],
     discussionsHome: [],
     discussions: [],
