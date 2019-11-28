@@ -14,12 +14,12 @@
     <CopyButton class="ml-5" @clipboardText="text to a be a copied">Copy</CopyButton>
     <h6 class="m-5">Header</h6>
     <p class="m-5 text-gray-800">Change the header area of your support portal</p>
-    <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
-    <CopyButton class="ml-5" @clipboardText="text to a be copied">Copy</CopyButton>
+    <div class="m-5">{{ember-ace lines=10 value=this.portalData.header}}</div>
+    <CopyButton class="ml-5" @clipboardText={{this.portalData.header}}>Copy</CopyButton>
     <h6 class="m-5">Footer</h6>
     <p class="m-5 text-gray-800">Change the footer area of your support portal</p>
-    <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
-    <CopyButton class="ml-5" @clipboardText="text to a be copied">Copy</CopyButton>
+    <div class="m-5">{{ember-ace lines=10 value=this.portalData.footer}}</div>
+    <CopyButton class="ml-5" @clipboardText={{this.portalData.footer}}>Copy</CopyButton>
     <h6 class="m-5">Page Layout</h6>
     <p class="m-5 text-gray-800">Customize the entire layout of your support portal</p>
     <div class="m-5">{{ember-ace lines=10 value="<html></html>"}}</div>
@@ -28,13 +28,14 @@
 {{else}}
   <div class="flex">
     <div class="mt-5 w-1/6">
-      {{#each pages as |page|}}
-        <a {{action "pageAction" page}} class="ml-5">{{page}}</a>
+      {{#each-in pages as |key value|}}
+        <a {{action "pageAction" key}} class="ml-5">{{value}}</a>
         <br>
-      {{/each}}
+      {{/each-in}}
     </div>
     <div class="p-5 w-5/6">
-      {{ember-ace lines=30 value=pageString}}
+      {{log 'sdasf' this.pageString}}
+      {{ember-ace lines=30 value=this.pageString}}
       <CopyButton class="mt-5" @clipboardText={{pageString}}>Copy</CopyButton>
     </div>
   </div>

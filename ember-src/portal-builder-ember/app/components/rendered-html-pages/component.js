@@ -2,17 +2,32 @@ import Component from '@ember/component';
 import { computed, set } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-const PAGES = ['Portal home', 'Solutions home', 'Discussions home'];
+const PAGES = {
+  portalHome: "Portal home",
+  solutionsHome: "Solutions home",
+  discussionsHome: "Discussions home",
+  discussions: "Discussions",
+  newTicket: "New ticket",
+  ticketList: "Ticket list",
+  ticketDetails: "Ticket details",
+  topicList: "Topic list"
+}
 
 export default Component.extend({
-  data: service('portal-data'),
+  portalData: service('portal-data'),
   layoutView: true,
   pages: computed({
     get() {
       return PAGES;
     }
   }),
-  pageString: 'Portal home',
+  pageString: computed('portalData.currentPage', {
+      get() {
+        let currentPage = this.portalData.currentPage;
+        let array = this.portalData.pages[currentPage] || [];
+        return array.map(item => item.htmlString).join(' ');
+      }
+  }),
   actions: {
     selectView(view) {
       if(view === 'layout') {
@@ -22,13 +37,7 @@ export default Component.extend({
       }
     },
     pageAction(page) {
-      if(page === 'Portal home') {
-        set(this, 'pageString', 'Portal home');
-      } else if (page === 'Solutions home') {
-        set(this, 'pageString', this.data.get('solutions_home'));
-      } else if (page === 'Discussions home') {
-        set(this, 'pageString', 'Discussions home');
-      }
-    },
+      set(this, 'portalData.currentPage', page);
+    }
   }
 });
