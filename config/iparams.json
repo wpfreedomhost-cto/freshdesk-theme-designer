@@ -1,1 +1,14 @@
-{}
+{
+  "freshdesk_subdomain": {
+    "display_name": "Freshdesk domain name : ",
+    "description": "Enter the Freshdesk domain name",
+    "type": "text",
+    "required": true
+  },
+  "freshdesk_api_key": {
+    "display_name": "Freshdesk API key",
+    "description": "Enter the Freshdesk API key. It can be found in the profile settings.",
+    "type": "text",
+    "required": true
+  }
+}
