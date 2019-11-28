@@ -7,6 +7,12 @@ import { computed } from '@ember/object';
 export default Controller.extend({
   portalData: service(),
 
+  currentPageComp: computed({
+    get() {
+      return this.portalData.pages[this.model.pageName] || {};
+    }
+  }),
+
 
   iframeSrc: computed('portalData.pages', 'model.{pageName,component}', {
     get() {

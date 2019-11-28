@@ -33,10 +33,20 @@ export const header1 = () => {
       `
     },
 
-    options: {
-      listName: ['solutions', 'portal'],
-      listItemPath: ['name', 'domainName']
-    },
+    options: [
+      {
+        name: 'loop through',
+        keyName: 'listName',
+        values: ['solutions', 'portal'],
+        type: 'dropdown'
+      },
+      {
+        name: 'and show value',
+        keyName: 'listItemPath',
+        values: ['name', 'domainName'],
+        type: 'dropdown'
+      }
+    ],
 
     selectedOptions: {
       listName: 'solutions',
