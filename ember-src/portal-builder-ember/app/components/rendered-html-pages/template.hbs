@@ -14,12 +14,12 @@
     <CopyButton class="ml-5" @clipboardText={{this.portalData.head}}>Copy</CopyButton>
     <h6 class="m-5">Header</h6>
     <p class="m-5 text-gray-800">Change the header area of your support portal</p>
-    <div class="m-5">{{ember-ace lines=10 value=this.portalData.header}}</div>
-    <CopyButton class="ml-5" @clipboardText={{this.portalData.header}}>Copy</CopyButton>
+    <div class="m-5">{{ember-ace lines=10 value=this.headerLiquidTemplate}}</div>
+    <CopyButton class="ml-5" @clipboardText={{this.headerLiquidTemplate}}>Copy</CopyButton>
     <h6 class="m-5">Footer</h6>
     <p class="m-5 text-gray-800">Change the footer area of your support portal</p>
-    <div class="m-5">{{ember-ace lines=10 value=this.portalData.footer}}</div>
-    <CopyButton class="ml-5" @clipboardText={{this.portalData.footer}}>Copy</CopyButton>
+    <div class="m-5">{{ember-ace lines=10 value=this.footerLiquidTemplate}}</div>
+    <CopyButton class="ml-5" @clipboardText={{this.footerLiquidTemplate}}>Copy</CopyButton>
     <h6 class="m-5">Page Layout</h6>
     <p class="m-5 text-gray-800">Customize the entire layout of your support portal</p>
     <div class="m-5">{{ember-ace lines=10 value=this.portalData.layout}}</div>

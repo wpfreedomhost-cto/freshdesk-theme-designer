@@ -1,6 +1,8 @@
 import Component from '@ember/component';
 import { computed, set } from '@ember/object';
 import { inject as service } from '@ember/service';
+import portalTemplates from 'portal-builder-ember/portal-component-generators/all';
+
 
 const PAGES = {
   portalHome: "Portal home",
@@ -21,6 +23,25 @@ export default Component.extend({
       return PAGES;
     }
   }),
+
+  headerLiquidTemplate: computed({
+    get() {
+      let template = portalTemplates['header1']();
+      let selectedOptions = template.selectedOptions;
+      let component = template;
+      return component.constructLiquidString(selectedOptions);
+    }
+  }),
+
+  footerLiquidTemplate: computed({
+    get() {
+      let template = portalTemplates['footer1']();
+      let selectedOptions = template.selectedOptions;
+      let component = template;
+      return component.constructLiquidString(selectedOptions);
+    }
+  }),
+  
   init() {
     this._super(...arguments);
     set(this, 'portalData.currentPage', "portalHome");
