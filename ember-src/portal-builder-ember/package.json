@@ -15,7 +15,9 @@
     "start": "LOCATION_TYPE='none' ember build --output-path=../../app/dist -w",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "test": "ember test"
+    "test": "ember test",
+    "pack": "fdk pack -v 'lint'",
+    "lint": "eslint src/ --ext .jsx --ext .js"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",

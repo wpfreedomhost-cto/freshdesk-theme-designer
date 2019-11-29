@@ -28,3 +28,5 @@ ember-src/portal-builder-ember/package.json.ember-try
 .report.json
 app/dist/
 coverage/
+
+/dist
