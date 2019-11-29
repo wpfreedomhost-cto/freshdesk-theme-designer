@@ -6,6 +6,8 @@ import LiquidEngine from 'portal-builder-ember/utils/liquid-renderer';
 
 export default Controller.extend({
   portalData: service('portal-data'),
+  router: service(),
+
   headerInLayout: false,
 
   async addComponentToPreview(componentId) {
@@ -44,6 +46,8 @@ export default Controller.extend({
 
     doneSave() {
       set(this, 'portalData.header', this.currentPageComp);
+
+      this.router.transitionTo('footer');
     }
   }
 });

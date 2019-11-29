@@ -6,6 +6,7 @@ import LiquidEngine from 'portal-builder-ember/utils/liquid-renderer';
 
 export default Controller.extend({
   portalData: service('portal-data'),
+  router: service(),
 
   async addComponentToPreview(componentId) {
     let selectedOptions = portalTemplates[componentId]().selectedOptions;
@@ -32,6 +33,8 @@ export default Controller.extend({
     },
     doneSave() {
       set(this, 'portalData.footer', this.currentPageComp);
+
+      this.router.transitionTo('full-preview-route');
     }
   }
 });
