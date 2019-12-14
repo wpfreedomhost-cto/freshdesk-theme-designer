@@ -2,12 +2,12 @@ body {
   @apply .text-base .text-black;
   
   font-family: 'Montserrat', sans-serif;
-  width: calc(100% - 15px);
-  height: calc(100vh - 15px);
+  width: calc(100% - 30px);
+  height: calc(100vh - 30px);
   box-sizing: border-box;
 }
 
-body > div:first {
+body > div:first-of-type {
   width: 100%;
   height: 100%;
   overflow: auto;

@@ -17,7 +17,8 @@
     "lint:js": "eslint .",
     "test": "ember test",
     "pack": "fdk pack -v 'lint'",
-    "lint": "eslint src/ --ext .jsx --ext .js"
+    "lint": "eslint src/ --ext .jsx --ext .js",
+    "fdn_run": "fdk run --skip-coverage"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",

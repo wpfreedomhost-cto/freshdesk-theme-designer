@@ -25,11 +25,13 @@ export default Controller.extend({
 
   fullPageSource: computed('portalData.currentPage', {
       get() {
-        let headerHtml = this.portalData.header.htmlString;
+        // let headerHtml = this.portalData.header.htmlString;
+        // let footerHtml = this.portalData.footer.htmlString;
         let currentPage = this.portalData.currentPage;
-        let array = this.portalData.pages[currentPage] || [];
-        let footerHtml = this.portalData.footer.htmlString;
-        return headerHtml + array.map(item => item.htmlString).join(' ') + footerHtml;
+        let headerHtml = '';
+        let footerHtml = '';
+        let pageComponenets = this.portalData.pages[currentPage] || [];
+        return headerHtml + pageComponenets.map(comp => comp.constructLiquidString(comp.selectedOptions)).join(' ') + footerHtml;
       }
   }),
 

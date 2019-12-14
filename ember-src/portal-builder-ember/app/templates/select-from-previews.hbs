@@ -1,0 +1,17 @@
+<div class="flex flex-col">
+  <h3 class="flex justify-center mt-10">Pick a portal design you like</h3>
+
+  <div class="mx-40 flex flex-1 flex-wrap justify-between
+              md:mx-20">
+    {{#each portalPreviews as |preview|}}
+      <div class="flex mt-16">
+        <FullPreview
+          @showWindowCss={{true}}
+          @showHoverScreen={{true}}
+          @showComponentList={{true}}
+          @onEditClick={{action "onEditClick" preview}}
+          @onViewClick={{action "onViewClick" preview}}/>
+      </div>
+    {{/each}}
+  </div>
+</div>

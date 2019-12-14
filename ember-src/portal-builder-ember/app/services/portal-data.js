@@ -5,7 +5,6 @@ import { setProperties } from '@ember/object';
 import { layout } from 'portal-builder-ember/portal-component-generators/layout';
 import { head } from 'portal-builder-ember/portal-component-generators/head';
 
-// const SOLUTIONS_DATA = "solutions home";
 export default Service.extend({
 
   portal: null,

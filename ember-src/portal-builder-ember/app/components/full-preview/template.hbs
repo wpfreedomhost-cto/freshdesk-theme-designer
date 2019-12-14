@@ -1,6 +1,35 @@
-<iframe id="test" 
-  class={{this.customClassNames}}
-  frameborder="0"
-  onLoad={{action "testAction"}} 
-  srcdoc={{iframeSrc}}>
-</iframe>
+{{#if @showWindowCss}}
+  <div class="border-2 rounded-lg shadow-lg">
+    <div class="bg-gray-400 px-3 rounded-t-lg border-b border-gray-700">
+      <span class="h-2 w-2 bg-gray-800 inline-block rounded-full"></span>
+      <span class="h-2 w-2 bg-gray-800 inline-block rounded-full"></span>
+      <span class="h-2 w-2 bg-gray-800 inline-block rounded-full"></span>
+    </div>
+
+    <div class="relative laptop-preview-wrapper">
+
+      {{#if @showHoverScreen}}
+        <div class="preview-hover-screen absolute w-full h-full flex flex-col items-center justify-center z-10 hidden">
+          <button {{action @onEditClick}}
+            class="btn-primary rounded-full px-4">Edit</button>
+          <button  {{action @onViewClick}}
+            class="rounded-full px-3 mt-2">View</button>
+        </div>
+      {{/if}}
+
+      <iframe id={{this.id}}
+          class="preview-laptop"
+          frameborder="0"
+          onLoad={{action "testAction"}}
+          srcdoc={{this.iframeSrc}}>
+      </iframe>
+    </div>
+  </div>
+{{else}}
+  <iframe id={{this.id}}
+      class="preview-laptop"
+      frameborder="0"
+      onLoad={{action "testAction"}}
+      srcdoc={{this.iframeSrc}}>
+  </iframe>
+{{/if}}

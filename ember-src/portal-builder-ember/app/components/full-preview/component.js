@@ -6,7 +6,12 @@ export default Component.extend({
   router: service(),
   portalData: service(),
 
-  classNames: ['w-full', 'h-full'],
+  tagName: '',
+  // classNames: ['w-full', 'h-full'],
+
+  id: computed(function() {
+    return '_' + Math.random().toString(36).substr(2, 9);
+  }),
 
   iframeSrc: computed('customSrc', {
    get() {
@@ -90,7 +95,7 @@ export default Component.extend({
 
   actions: {
     testAction() {
-      let iframe = this.element.querySelector('#test');
+      let iframe = document.querySelector(`#${this.id}`);
 
       iframe.contentDocument.head.appendChild(this.headerContent);
 

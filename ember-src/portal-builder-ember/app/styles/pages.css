@@ -10,5 +10,34 @@
   min-height: 250px;
   border: 2px solid #DBDDE0;
   border-radius: 4px;
- } 
+ }
 /* full-page-preview page end*/
+
+
+/* preview-select start */
+
+.laptop-preview-wrapper {
+  height: 280px;
+  width: 448px;
+}
+
+.laptop-preview-wrapper:hover .preview-hover-screen  {
+  display: flex;
+  
+  background-color: rgba(204, 229, 255, 0.9);
+  border-bottom-left-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+}
+
+.preview-laptop {
+  width: 1280px;
+  height: 802px;
+  transform: scale(0.35);
+
+  transform-origin: top left;
+  position: relative;
+
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+/* end */

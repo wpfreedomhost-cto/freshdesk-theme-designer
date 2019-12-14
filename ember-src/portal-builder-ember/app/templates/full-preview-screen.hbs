@@ -2,11 +2,11 @@
 
     <FullPreview
       @customSrc={{this.fullPageSource}}
-      @showComponentList=true
+      @showComponentList={{true}}
       @customClassNames="full-preview-class"/>
 
       {{#if showSidebar}}
-        <div class="w-full absolute md:w-1/6 bg-gray-900 md:bg-gray-900 px-2 text-center fixed bottom-0 pt-2 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600">
+        <div class="absolute w-1/6 h-screen bg-gray-900 px-2 text-center fixed bottom-0 pt-2 md:top-0 md:left-0 md:border-r-2 md:border-gray-600">
           <a {{action "toggleSidebar"}}>
             <svg class="fill-current text-blue-500 h-6 w-6 float-right"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM11.4 10l2.83-2.83-1.41-1.41L10 8.59 7.17 5.76 5.76 7.17 8.59 10l-2.83 2.83 1.41 1.41L10 11.41l2.83 2.83 1.41-1.41L11.41 10z"/></svg></a>
           <div class="absolute mx-auto float-right px-6 mt-6">
@@ -15,7 +15,7 @@
                 <li class="mr-3 flex-1">
                   <a {{action "transitionToCurrentPage" key}} 
                     class="bg-transparent block py-1 md:py-3 pl-1 align-middle no-underline border-b-2 border-gray-900 hover:border-blue-500">
-                    <span class="{{if (equals this.portalData.currentPage key) 'text-yellow-400 ' 'text-gray-400 '}} pb-1 pb-0 text-xs text-base inline-block">{{value}}</span>
+                    <span class="{{if (equals this.portalData.currentPage key) "text-yellow-400 " "text-gray-400 "}} pb-1 pb-0 text-xs text-base inline-block">{{value}}</span>
                   </a>
                 </li>
               {{/each-in}}
