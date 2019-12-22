@@ -68,3 +68,7 @@ button.btn-primary:hover,
 .btn.btn-primary:hover {
   @apply .bg-blue-900;
 }
+
+.w-iframe-screen {
+  width: calc(100% - 30px);
+}

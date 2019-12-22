@@ -1,21 +1,4 @@
-/* full-page-preview page start*/
- .full-preview-class {
-  width: calc(100% - 15px);
-  height: calc(100vh - 30px);
- }
-
- .full-preview-class-1 {
-  width: calc(100% - 15px);
-  height: 100%;
-  min-height: 250px;
-  border: 2px solid #DBDDE0;
-  border-radius: 4px;
- }
-/* full-page-preview page end*/
-
-
 /* preview-select start */
-
 .laptop-preview-wrapper {
   height: 280px;
   width: 448px;
@@ -41,3 +24,10 @@
   border-bottom-right-radius: 1rem;
 }
 /* end */
+
+/* full-page-preview page start*/
+.preview-laptop-window-less {
+  width: 100%;
+  height: 100%;
+ }
+/* full-page-preview page end*/

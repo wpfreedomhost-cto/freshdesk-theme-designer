@@ -7,7 +7,6 @@ export default Component.extend({
   portalData: service(),
 
   tagName: '',
-  // classNames: ['w-full', 'h-full'],
 
   id: computed(function() {
     return '_' + Math.random().toString(36).substr(2, 9);
@@ -94,7 +93,7 @@ export default Component.extend({
   },
 
   actions: {
-    testAction() {
+    onIframeLoad() {
       let iframe = document.querySelector(`#${this.id}`);
 
       iframe.contentDocument.head.appendChild(this.headerContent);
@@ -111,6 +110,10 @@ export default Component.extend({
             this.router.transitionTo('rendered-html');
           }
         });
+      }
+
+      if (this.styleSheet) {
+        iframe.contentDocument.body.innerHTML += `'<style> ${this.styleSheet} </style>`
       }
     }
   }

@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { computed, set } from '@ember/object';
-import defaultTheme from 'portal-builder-ember/portal-themes/default-theme/all';
 import { inject as service } from '@ember/service';
+import defaultTheme from 'portal-builder-ember/portal-themes/default-theme/all';
 
 export default Controller.extend({
   portalData: service(),
@@ -36,7 +36,12 @@ export default Controller.extend({
   actions: {
     onEditClick(preview) {
       set(this, 'portalData.currentPage', 'portalHome');
-      set(this, 'portalData.pages', preview.pagesObj());
+      
+      let theme = preview.pagesObj();
+      set(this, 'portalData.stylesheet', theme.stylesheet);
+      set(this, 'portalData.header', theme.header);
+      set(this, 'portalData.footer', theme.footer);
+      set(this, 'portalData.pages', theme.pages);
 
       this.transitionToRoute('full-preview-screen');
     },

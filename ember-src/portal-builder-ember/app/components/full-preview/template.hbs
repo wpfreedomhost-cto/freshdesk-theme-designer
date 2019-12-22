@@ -20,16 +20,16 @@
       <iframe id={{this.id}}
           class="preview-laptop"
           frameborder="0"
-          onLoad={{action "testAction"}}
+          onLoad={{action "onIframeLoad"}}
           srcdoc={{this.iframeSrc}}>
       </iframe>
     </div>
   </div>
 {{else}}
   <iframe id={{this.id}}
-      class="preview-laptop"
+      class={{concat "preview-laptop-window-less " @customClassNames}}
       frameborder="0"
-      onLoad={{action "testAction"}}
+      onLoad={{action "onIframeLoad"}}
       srcdoc={{this.iframeSrc}}>
   </iframe>
 {{/if}}

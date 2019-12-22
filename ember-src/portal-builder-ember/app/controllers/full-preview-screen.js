@@ -2,37 +2,55 @@ import Controller from '@ember/controller';
 import { computed, get, set } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-const SIDEBAR_SECTION = {
-  portalHome: "Portal home",
-  solutionsHome: "Solutions home",
-  discussionsHome: "Discussions home",
-  discussions: "Discussions",
-  newTicket: "New ticket",
-  ticketList: "Ticket list",
-  ticketDetails: "Ticket details",
-  topicList: "Topic list"
-}
+// const SIDEBAR_SECTION = {
+//   portalHome: "Portal home",
+//   solutionsHome: "Solutions home",
+//   discussionsHome: "Discussions home",
+//   discussions: "Discussions",
+//   newTicket: "New ticket",
+//   ticketList: "Ticket list",
+//   ticketDetails: "Ticket details",
+//   topicList: "Topic list"
+// }
 export default Controller.extend({
-  portalData: service('portal-data'),
+  portalData: service(),
 
   showSidebar: false,
 
-  sidebarSection: computed({
+  portalPages: computed({
     get() {
-      return SIDEBAR_SECTION;
+      return [
+        {
+          name: "Portal home",
+          key: "portalHome"
+        },
+        {
+          name: "Solutions home",
+          key: "solutionsHome"
+        },
+        {
+          name: "Discussions home",
+          key: "discussionsHome"
+        }
+      ];
     }
   }),
 
   fullPageSource: computed('portalData.currentPage', {
       get() {
-        // let headerHtml = this.portalData.header.htmlString;
-        // let footerHtml = this.portalData.footer.htmlString;
+        let headerHtml = this.portalData.header.constructLiquidString(this.portalData.header.selectedOptions);
+        let footerHtml = this.portalData.footer.constructLiquidString(this.portalData.footer.selectedOptions);
         let currentPage = this.portalData.currentPage;
-        let headerHtml = '';
-        let footerHtml = '';
+
         let pageComponenets = this.portalData.pages[currentPage] || [];
         return headerHtml + pageComponenets.map(comp => comp.constructLiquidString(comp.selectedOptions)).join(' ') + footerHtml;
       }
+  }),
+
+  styleSheet: computed({
+    get() {
+      return this.portalData.stylesheet;
+    }
   }),
 
   actions: {
@@ -41,6 +59,10 @@ export default Controller.extend({
     },
     transitionToCurrentPage(currentPage) {
       set(this, 'portalData.currentPage', currentPage);
+    },
+
+    foo() {
+      
     }
   }
 });
