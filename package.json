@@ -4,6 +4,6 @@
   "pack": "fdk pack -v 'lint'"
   },
   "dependencies": {
-    "fdk": "https://dl.freshdev.io/cli/fdk-5.3.0.tgz"
+    "fdk": "https://dl.freshdev.io/cli/fdk-5.4.0.tgz"
   }
 }
