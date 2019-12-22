@@ -1,22 +1,25 @@
 import Controller from '@ember/controller';
 import { run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
-import { set } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend({
-  portalData: service(),
+export default class Application extends Controller { 
+  @service portalData;
 
-  portalDataLoaded: false,
+  @tracked
+  portalDataLoaded = false;
 
-  init: function () {
-    this._super();
+  constructor() {
+    super(...arguments);
+    
     run.schedule("afterRender", this, function () {
       window.app.initialized().then( async (_client) => {
         window.client = _client;
         await this.portalData.loadData();
 
-        set(this, 'portalDataLoaded', true);
+        this.portalDataLoaded = true;
       });
     });
-  },
-});
+  }
+
+}

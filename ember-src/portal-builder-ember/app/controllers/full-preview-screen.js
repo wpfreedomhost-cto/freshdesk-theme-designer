@@ -1,68 +1,54 @@
 import Controller from '@ember/controller';
-import { computed, get, set } from '@ember/object';
+import { computed, set, action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-// const SIDEBAR_SECTION = {
-//   portalHome: "Portal home",
-//   solutionsHome: "Solutions home",
-//   discussionsHome: "Discussions home",
-//   discussions: "Discussions",
-//   newTicket: "New ticket",
-//   ticketList: "Ticket list",
-//   ticketDetails: "Ticket details",
-//   topicList: "Topic list"
-// }
-export default Controller.extend({
-  portalData: service(),
+export default class FullPreviewScreenController extends Controller {
+  @service portalData
 
-  showSidebar: false,
+  showSidebar = false
 
-  portalPages: computed({
-    get() {
-      return [
-        {
-          name: "Portal home",
-          key: "portalHome"
-        },
-        {
-          name: "Solutions home",
-          key: "solutionsHome"
-        },
-        {
-          name: "Discussions home",
-          key: "discussionsHome"
-        }
-      ];
-    }
-  }),
-
-  fullPageSource: computed('portalData.currentPage', {
-      get() {
-        let headerHtml = this.portalData.header.constructLiquidString(this.portalData.header.selectedOptions);
-        let footerHtml = this.portalData.footer.constructLiquidString(this.portalData.footer.selectedOptions);
-        let currentPage = this.portalData.currentPage;
-
-        let pageComponenets = this.portalData.pages[currentPage] || [];
-        return headerHtml + pageComponenets.map(comp => comp.constructLiquidString(comp.selectedOptions)).join(' ') + footerHtml;
+  get portalPages() {
+    return [
+      {
+        name: "Portal home",
+        key: "portalHome"
+      },
+      {
+        name: "Solutions home",
+        key: "solutionsHome"
+      },
+      {
+        name: "Discussions home",
+        key: "discussionsHome"
       }
-  }),
-
-  styleSheet: computed({
-    get() {
-      return this.portalData.stylesheet;
-    }
-  }),
-
-  actions: {
-    toggleSidebar() {
-      set(this, 'showSidebar', !get(this, 'showSidebar'))
-    },
-    transitionToCurrentPage(currentPage) {
-      set(this, 'portalData.currentPage', currentPage);
-    },
-
-    foo() {
-      
-    }
+    ];
   }
-});
+
+  @computed('portalData.currentPage')
+  get fullPageSource() {
+    let headerHtml = this.portalData.header.constructLiquidString(this.portalData.header.selectedOptions);
+    let footerHtml = this.portalData.footer.constructLiquidString(this.portalData.footer.selectedOptions);
+    let currentPage = this.portalData.currentPage;
+
+    let pageComponenets = this.portalData.pages[currentPage] || [];
+    return headerHtml + pageComponenets.map(comp => comp.constructLiquidString(comp.selectedOptions)).join(' ') + footerHtml;
+  }
+
+  get styleSheet() {
+    return this.portalData.stylesheet;
+  }
+
+  @action
+  toggleSidebar() {
+    set(this, 'showSidebar', !this.showSidebar)
+  }
+
+  @action
+  transitionToCurrentPage(currentPage) {
+    set(this, 'portalData.currentPage', currentPage);
+  }
+
+  @action
+  foo() {
+  }
+}

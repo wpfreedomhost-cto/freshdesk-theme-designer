@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-  setupController(controller, model) {
-    this._super(controller, model);
+export default class FullPreviewScreen extends Route {
+  setupController(controller) {
+    super.setupController(...arguments);
 
     controller.notifyPropertyChange('fullPageSource');
   }
-});
+}

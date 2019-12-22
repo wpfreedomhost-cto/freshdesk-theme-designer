@@ -7,10 +7,11 @@ import { head } from 'portal-builder-ember/portal-component-generators/head';
 
 export default Service.extend({
 
-  portal: null,
-
   head: head().constructLiquidString(),
   layout: layout().constructLiquidString(),
+  portal: null,
+  currentPage: '',
+
   pages: {
     portalHome: [],
     solutionsHome: [],

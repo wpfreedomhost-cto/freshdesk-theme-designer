@@ -10,9 +10,9 @@
 
       {{#if @showHoverScreen}}
         <div class="preview-hover-screen absolute w-full h-full flex flex-col items-center justify-center z-10 hidden">
-          <button {{action @onEditClick}}
+          <button {{on "click" @onEditClick}}
             class="btn-primary rounded-full px-4">Edit</button>
-          <button  {{action @onViewClick}}
+          <button  {{on "click" @onViewClick}}
             class="rounded-full px-3 mt-2">View</button>
         </div>
       {{/if}}
@@ -20,8 +20,8 @@
       <iframe id={{this.id}}
           class="preview-laptop"
           frameborder="0"
-          onLoad={{action "onIframeLoad"}}
-          srcdoc={{this.iframeSrc}}>
+          srcdoc={{this.iframeSrc}}
+          {{on "load" this.onIframeLoad}}>
       </iframe>
     </div>
   </div>
@@ -29,7 +29,7 @@
   <iframe id={{this.id}}
       class={{concat "preview-laptop-window-less " @customClassNames}}
       frameborder="0"
-      onLoad={{action "onIframeLoad"}}
-      srcdoc={{this.iframeSrc}}>
+      srcdoc={{this.iframeSrc}}
+      {{on "load" this.onIframeLoad}}>
   </iframe>
 {{/if}}

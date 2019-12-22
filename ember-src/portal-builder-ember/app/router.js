@@ -16,6 +16,4 @@ Router.map(function() {
     this.route('edit', {path: ':component_id/:page_name' });
   });
   this.route('rendered-html');
-  
-  this.route('style-guide');
 });
