@@ -37,6 +37,7 @@ export default class SelectFromPreviewController extends Controller {
     set(this, 'portalData.stylesheet', theme.stylesheet);
     set(this, 'portalData.header', theme.header);
     set(this, 'portalData.footer', theme.footer);
+    set(this, 'portalData.layoutConstructor', theme.layoutConstructor);
     set(this, 'portalData.pages', theme.pages);
 
     this.transitionToRoute('full-preview-screen');

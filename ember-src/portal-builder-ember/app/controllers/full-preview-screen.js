@@ -1,11 +1,18 @@
 import Controller from '@ember/controller';
-import { computed, set, action } from '@ember/object';
+import { set, action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import LiquidRenderer from 'portal-builder-ember/utils/liquid-renderer';
 
 export default class FullPreviewScreenController extends Controller {
   @service portalData
 
   showSidebar = false
+
+  constructor() {
+    super(...arguments);
+
+    this.setupFullPageSource();
+  }
 
   get portalPages() {
     return [
@@ -24,18 +31,28 @@ export default class FullPreviewScreenController extends Controller {
     ];
   }
 
-  @computed('portalData.currentPage')
-  get fullPageSource() {
+  get styleSheet() {
+    return this.portalData.stylesheet || '';
+  }
+
+  async setupFullPageSource() {
     let headerHtml = this.portalData.header.constructLiquidString(this.portalData.header.selectedOptions);
     let footerHtml = this.portalData.footer.constructLiquidString(this.portalData.footer.selectedOptions);
     let currentPage = this.portalData.currentPage;
 
     let pageComponenets = this.portalData.pages[currentPage] || [];
-    return headerHtml + pageComponenets.map(comp => comp.constructLiquidString(comp.selectedOptions)).join(' ') + footerHtml;
-  }
+    let contentForLayout = pageComponenets.map(comp => comp.constructLiquidString(comp.selectedOptions)).join(' ');
+    let layoutConstructor = this.portalData.layoutConstructor;
 
-  get styleSheet() {
-    return this.portalData.stylesheet;
+    let liquidLayout = layoutConstructor({
+      header: headerHtml,
+      contentForLayout,
+      footer: footerHtml
+    });
+
+    let fullPageSource = await LiquidRenderer(liquidLayout, { portal: this.portalData.portalDataValues });
+
+    this.fullPageSource = fullPageSource;
   }
 
   @action

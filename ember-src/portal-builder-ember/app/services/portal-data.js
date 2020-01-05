@@ -78,7 +78,7 @@ export default Service.extend({
         category = await _this._loadFolders(category);
         solution_categories.push(category);
       });
-      set(this, 'portal', { solution_categories });
+      set(this, 'portalDataValues', { solution_categories });
     }
     return this.portal;
   }
