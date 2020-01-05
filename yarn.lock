@@ -1245,9 +1245,9 @@ fast-levenshtein@~2.0.6:
   resolved "https://registry.yarnpkg.com/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
-"fdk@https://dl.freshdev.io/cli/fdk-5.4.0.tgz":
-  version "5.4.0"
-  resolved "https://dl.freshdev.io/cli/fdk-5.4.0.tgz#4d18eed7eadd01e5d1f1046b532cd77623a689af"
+"fdk@https://dl.freshdev.io/cli/fdk-5.4.1.tgz":
+  version "5.4.1"
+  resolved "https://dl.freshdev.io/cli/fdk-5.4.1.tgz#381e21a08d0d85523b484da4eee38f5897b9b517"
   dependencies:
     adm-zip "^0.4.11"
     ajv "4.11.8"

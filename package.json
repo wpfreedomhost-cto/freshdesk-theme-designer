@@ -1,9 +1,9 @@
-{  
+{
   "scripts": {
-  "frun": "fdk run --skip-coverage",
-  "pack": "fdk pack -v 'lint'"
+    "start": "fdk run --skip-coverage",
+    "pack": "fdk pack -v 'lint'"
   },
   "dependencies": {
-    "fdk": "https://dl.freshdev.io/cli/fdk-5.4.0.tgz"
+    "fdk": "https://dl.freshdev.io/cli/fdk-5.4.1.tgz"
   }
 }
