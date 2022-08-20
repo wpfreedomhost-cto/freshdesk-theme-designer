@@ -1,6 +1,6 @@
-## Portal builder
+## FreshDesk Theme Designer
 
-Congratulations on creating your first app! Feel free to replace this text with your app's actual description.
+Ab attempt to revive a promising theme builder that has been dormant for three years.
 
 ### Folder structure explained
 
